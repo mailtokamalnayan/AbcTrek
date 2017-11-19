@@ -190,40 +190,6 @@ a:focus {
 	transform: rotate3d(0, 0, 1, 22.5deg);
 }
 
-.codrops-icon {
-	display: inline-block;
-	width: 1.5em;
-	margin: 0.5em;
-	padding: 0em 0;
-	text-decoration: none;
-}
-
-.codrops-icon span {
-	display: none;
-}
-
-.codrops-icon:before {
-	font-family: 'codropsicons';
-	font-weight: normal;
-	font-style: normal;
-	font-variant: normal;
-	line-height: 1;
-	margin: 0 5px;
-	text-transform: none;
-	-webkit-font-smoothing: antialiased;
-	speak: none;
-}
-
-.codrops-icon--drop:before {
-	content: '\e001';
-	color: #09c;
-}
-
-.codrops-icon--prev:before {
-	content: '\e004';
-}
-
-
 /* Demo links */
 
 .codrops-demos {
@@ -258,9 +224,13 @@ a:focus {
 	background: #181922;
 }
 
+.content--section {
+	margin-bottom: 4em;
+}
+
 .info {
 	font-size: 1.65em;
-	padding: 0 0 4em;
+	font-weight: 600;
 }
 
 .media-item {
