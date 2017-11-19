@@ -1,9 +1,25 @@
 @font-face {
-	font-family: 'codropsicons';
-	font-weight: normal;
-	font-style: normal;
-	src: url('../fonts/codropsicons/codropsicons.eot');
-	src: url('../fonts/codropsicons/codropsicons.eot?#iefix') format('embedded-opentype'), url('../fonts/codropsicons/codropsicons.woff') format('woff'), url('../fonts/codropsicons/codropsicons.ttf') format('truetype'), url('../fonts/codropsicons/codropsicons.svg#codropsicons') format('svg');
+    font-family: 'Whitney Cust';
+    src: url('../fonts/WhitneyHTF-Bold.woff2') format('woff2'),
+        url('../fonts/WhitneyHTF-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Whitney Cust';
+    src: url('../fonts/WhitneyHTF-Book.woff2') format('woff2'),
+        url('../fonts/WhitneyHTF-Book.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Whitney Cust';
+    src: url('../fonts/WhitneyHTF-BookItalic.woff2') format('woff2'),
+        url('../fonts/WhitneyHTF-BookItalic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
 }
 
 *,
@@ -24,7 +40,7 @@
 }
 
 body {
-	font-family: 'Whitney HTF', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: 'Whitney Cust', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #5d5c56;
 	background: #fff;
 	-webkit-font-smoothing: antialiased;
