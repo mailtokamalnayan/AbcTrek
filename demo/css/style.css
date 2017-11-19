@@ -310,6 +310,13 @@ a:focus {
 .text figure img {
 	max-width: 100%;
 }
+.text .js-image {
+	transition: opacity 500ms ease-in-out;
+	opacity: 0;
+}
+.text .js-image.b-loaded {
+	opacity: 1;
+}
 
 .text figcaption {
 	font-size: 0.85em;
