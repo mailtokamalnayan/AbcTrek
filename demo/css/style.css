@@ -432,3 +432,31 @@ a:focus {
 		max-width: none;
 	}
 }
+.share-btn-wrapper {
+	margin-top: 4em;
+    margin-bottom: 2em;
+    text-align: center;
+}
+.share-btn-item {
+	background-color: #181922;
+    font-size: 0.75em;
+    padding: 0.5em 1em;
+    border-radius: 2px;
+    color: white;
+    margin-left: 0.5em;
+}
+.share-btn-item:hover {
+	color: white;
+}
+.share-btn-item--twitter {
+	background-color: #1da1f2;
+}
+.share-btn-item--twitter:hover {
+	background-color: #0d95e8;
+}
+.share-btn-item--facebook {
+	background-color: #3b5998;
+}
+.share-btn-item--facebook:hover {
+	background-color: #344e86;
+}
