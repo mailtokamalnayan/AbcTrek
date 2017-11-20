@@ -114,7 +114,22 @@ a:focus {
 
 .header-title {
 	position: relative;
-	top: 2em;
+	top: 2.5em;
+	animation-delay: 1s;
+	animation-duration: 1s;
+	animation-fill-mode: both;
+	animation-name: fadeInUp;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .header-title__main {
