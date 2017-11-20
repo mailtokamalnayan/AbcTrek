@@ -87,18 +87,18 @@ a:focus {
 	z-index: 1000;
 	display: -webkit-flex;
 	display: flex;
-	-webkit-flex-direction: column;
-	flex-direction: column;
+	-webkit-flex-direction: row;
+	flex-direction: row;
 	-webkit-justify-content: center;
 	justify-content: center;
-	-webkit-align-items: center;
-	align-items: center;
+	-webkit-align-items: flex-start;
+	align-items: flex-start;
 	height: 100vh;
 	min-height: 600px;
 	padding: 2em 1em 4em;
 	text-align: center;
 	color: #fff;
-	background: #181922 url(../img/journey/2.jpg) no-repeat center center;
+	background: #181922 url(../img/journey/1-65.jpg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -109,11 +109,12 @@ a:focus {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0,0,0, 0.5);
+	// background: rgba(0,0,0, 0.5);
 }
 
 .header-title {
 	position: relative;
+	top: 2em;
 }
 
 .header-title__main {
@@ -135,10 +136,12 @@ a:focus {
 	text-transform: uppercase;
 }
 
-.header-title__part::before,
-.header-title__part::after {
-	content: '\2014';
-	padding: 0 0.5em;
+@media screen and (min-width: 768px) {
+	.header-title__part::before,
+	.header-title__part::after {
+		content: '\2014';
+		padding: 0 0.5em;
+	}
 }
 
 .header-title__sub {
@@ -327,7 +330,7 @@ a:focus {
 }
 
 .text figure img {
-	max-width: 100%;
+	width: 100%;
 }
 .text .js-image {
 	transition: opacity 500ms ease-in-out;
