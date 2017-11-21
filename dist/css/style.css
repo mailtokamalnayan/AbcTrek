@@ -1,3 +1,12 @@
+// Variables
+:root {
+  --sans-serif: 'Graphik', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: 'Guardian Egyptian Web', Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+}
+:root {
+  --sans-serif: 'Graphik', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --serif: 'Guardian Egyptian Web', Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+}
 @font-face {
     font-family: 'Whitney Cust';
     src: url('../fonts/WhitneyHTF-Bold.woff2') format('woff2'),
@@ -43,7 +52,7 @@
 }
 
 body {
-	font-family: 'Whitney Cust', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: var(--sans-serif);
 	color: #5d5c56;
 	background: #fff;
 	-webkit-font-smoothing: antialiased;
@@ -98,7 +107,7 @@ a:focus {
 	padding: 2em 1em 4em;
 	text-align: center;
 	color: #fff;
-	background: #181922 url(../img/journey/1-65.jpg) no-repeat center center;
+	background: #212529 url(../img/journey/1-65.jpg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -133,9 +142,9 @@ a:focus {
 }
 
 .header-title__main {
-	// font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
-	font-size: 3em;
-	font-weight: 600;
+	font-family: var(--serif);
+	font-size: 2em;
+	font-weight: 300;
 	line-height: 1;
 	margin: 0em 0 0.15em 0;
 }
@@ -145,18 +154,11 @@ a:focus {
 	//font-size: 0.85em;
 	font-weight: 400;
 	display: block;
-	padding: 0.5em 0 2em;
+	padding: 0.5em 0 1.5em;
 	text-indent: 4px;
 	letter-spacing: 4px;
 	text-transform: uppercase;
-}
-
-@media screen and (min-width: 768px) {
-	.header-title__part::before,
-	.header-title__part::after {
-		content: '\2014';
-		padding: 0 0.5em;
-	}
+	font-size: 0.8em;
 }
 
 .header-title__sub {
@@ -183,14 +185,14 @@ a:focus {
 	-webkit-align-items: center;
 	align-items: center;
 	margin: 0 0 3em;
-	padding: 6em 3em;
+	padding: 2em 3em;
 	text-align: center;
 	color: #fff;
-	background: #181922;
+	background: #212529;
 }
 
 .intro blockquote {
-	max-width: 800px;
+	max-width: 860px;
 	margin: 0 auto;
 }
 
@@ -203,6 +205,26 @@ a:focus {
 	padding: 1em 0;
 	color: #464b4b;
 	font-size: 0.75em;
+}
+
+@media screen and (min-width: 768px) {
+	.header-title__part::before,
+	.header-title__part::after {
+		content: '\2014';
+		padding: 0 0.5em;
+	}
+	.header-title__main {
+		font-size: 3em;
+	}
+	.header-title__part {
+		padding: 0.75em 0 1.5em;
+	}
+	.header-title {
+		top: 3em;
+	}
+	.intro {
+		padding: 4em 1em;
+	}
 }
 
 
@@ -258,7 +280,7 @@ a:focus {
 	padding: 10em 2em;
 	text-align: center;
 	color: #fff;
-	background: #181922;
+	background: #212529;
 }
 
 .content--section {
@@ -267,7 +289,8 @@ a:focus {
 
 .info {
 	font-size: 1.65em;
-	font-weight: 600;
+	font-weight: 300;
+	font-family: var(--serif);
 }
 
 .media-item {
@@ -323,7 +346,7 @@ a:focus {
 
 .title-up {
 	font-size: 0.365em;
-	font-weight: bold;
+	// font-weight: bold;
 	display: block;
 	letter-spacing: 7px;
 	text-transform: uppercase;
@@ -331,9 +354,9 @@ a:focus {
 }
 
 .title-down {
-	// font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
+	font-family: var(--serif);
 	font-size: 1.14em;
-	font-weight: 600;
+	font-weight: 300;
 	line-height: 0.9;
 	display: block;
 	padding: 0.15em 0 0.35em;
@@ -432,7 +455,7 @@ a:focus {
 	.intro {
 		font-size: 1.25em;
 		height: auto;
-		padding: 1em;
+		padding: 2em 1em;
 	}
 	.text {
 		font-size: 0.85em;
@@ -456,7 +479,7 @@ a:focus {
     text-align: center;
 }
 .share-btn-item {
-	background-color: #181922;
+	background-color: #212529;
     font-size: 0.75em;
     padding: 0.5em 1em;
     border-radius: 2px;
