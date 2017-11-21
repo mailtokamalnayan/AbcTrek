@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "opener http://localhost:8080/demo & http-server",
+    "start": "opener http://localhost:8080/dist & http-server",
     "build": "npm run build-js",
-    "build-js": "webpack && uglifyjs demo/app.js --screw-ie8 -c -m -o demo/app.js",
+    "build-js": "webpack && uglifyjs dist/app.js --screw-ie8 -c -m -o dist/app.js",
     "watch-js": "webpack -w",
     "watch": "npm run watch-js",
-    "deploy": "gh-pages -d demo"
+    "deploy": "gh-pages -d dist"
   },
   "author": "",
   "license": "ISC",
