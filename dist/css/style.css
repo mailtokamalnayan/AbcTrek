@@ -187,8 +187,9 @@ a:focus {
 }
 
 .intro {
-	// font-family: Baskerville, 'Baskerville Old Face', 'Hoefler Text', Garamond, 'Times New Roman', serif;
-	font-size: 2em;
+	font-family: var(--serif);
+	font-size: 1.2em;
+	line-height: 1.5;
 	position: relative;
 	z-index: 1000;
 	display: -webkit-flex;
@@ -206,20 +207,11 @@ a:focus {
 	background: #212529;
 }
 
-.intro blockquote {
-	max-width: 860px;
-	margin: 0 auto;
+.intro p {
+	max-width: 640px;
 }
-
-.intro em {
-	font-size: 1.5em;
-}
-
-.intro span {
-	display: block;
-	padding: 1em 0;
-	color: #464b4b;
-	font-size: 0.75em;
+.intro p + p {
+	margin-top: 0;
 }
 
 @media screen and (min-width: 375px) {
@@ -479,7 +471,7 @@ a:focus {
 		font-size: 1.5em;
 	}
 	.intro {
-		font-size: 1.25em;
+		font-size: 1em;
 		height: auto;
 		padding: 2em 1em;
 	}
