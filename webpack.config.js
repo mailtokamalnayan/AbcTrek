@@ -1,20 +1,22 @@
-module.exports={
+module.exports = {
   context: __dirname + "/src",
   entry: "./index",
-  output:{
-    filename:"app.js",
-    path:__dirname+"/demo"
+  output: {
+    filename: "app.js",
+    path: __dirname + "/dist",
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: 'babel-loader',
-        query: {
-          presets: ['es2015']
-        }
-      }
-    ]
-  }
-}
+        use: {
+          loader: "babel-loader",
+          options: {
+            presets: ["@babel/preset-env"],
+          },
+        },
+      },
+    ],
+  },
+};
