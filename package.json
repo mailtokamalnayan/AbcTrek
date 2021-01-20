@@ -31,6 +31,6 @@
     "@babel/core": "^7.10.0",
     "@babel/preset-env": "^7.10.0",
     "babel-loader": "^8.1.0",
-    "gsap": "^1.18.0"
+    "gsap": "^3.6.0"
   }
 }
