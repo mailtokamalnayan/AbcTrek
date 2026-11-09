@@ -1,4 +1,3 @@
-import 'babel-polyfill'
 import CanvasMap from './canvas-map'
 
 let map=CanvasMap({

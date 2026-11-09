@@ -5,7 +5,7 @@ import get from './ajax'
 import * as Path from './path'
 import {mult,sub,add,applyToAll} from './vector'
 import {clamp,interpolate,easing} from './math2'
-import TweenLite from 'gsap'
+import {gsap} from 'gsap'
 import hasClass from './has-class'
 
 let arrayNum=v=>Array.from(Array(v))
@@ -318,7 +318,8 @@ const CanvasMap=(props)=>{
       d=Math.sqrt(clamp(d/10))
       this.lastScroll=scroll
       t=d*0.2
-      TweenLite.to(this.scrollAnim,t,{
+      gsap.to(this.scrollAnim,{
+        duration:t,
         value:scroll,
         onUpdate:()=>{
           this.updateScroll(this.scrollAnim.value)
