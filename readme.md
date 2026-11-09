@@ -1,15 +1,33 @@
-Install it
+# Annapurna Base Camp Trek
 
-`$ npm i`
+An interactive journey to Annapurna Base Camp and back, over eight days. When you scroll the story, the map follows the route.
 
-Run it
+**Live site:** [abc.kamalnayan.co](https://abc.kamalnayan.co/)
 
-`$ npm run start`
+[![Annapurna Base Camp: to ABC and back in eight days](screenshot.jpg)](https://abc.kamalnayan.co/)
 
-Build it
+## Development
 
-`$ npm run build`
+Install the dependencies:
 
-Watch it
+```sh
+npm install
+```
 
-`$ npm run watch`
+Serve the site from `dist` and open it in your browser:
+
+```sh
+npm start
+```
+
+Build `dist/app.js` from `src`:
+
+```sh
+npm run build
+```
+
+Rebuild when a file in `src` changes:
+
+```sh
+npm run watch
+```
