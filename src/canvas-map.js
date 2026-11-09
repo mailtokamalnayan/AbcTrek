@@ -3,10 +3,9 @@ import {loadImage} from './image-loader'
 import createCanvas from './create-canvas'
 import get from './ajax'
 import * as Path from './path'
-import {mult,sub,add,applyToAll} from './vector'
+import {mult,sub,add} from './vector'
 import {clamp,interpolate,easing} from './math2'
 import {gsap} from 'gsap'
-import hasClass from './has-class'
 
 let arrayNum=v=>Array.from(Array(v))
 let getScroll=()=>window.pageYOffset
@@ -51,7 +50,6 @@ const CanvasMap=(props)=>{
     mapScale:1,
     mapScales:2,
     mapMaxScale:2.5,
-    mapCache:null,
     mapBuffer:null,
     mapBufferCtx:null,
     mapBufferScale:0,
@@ -77,8 +75,6 @@ const CanvasMap=(props)=>{
     trailSubdivisionSize:1,
     trailLength:0,
 
-    labels:null,
-
     sections:null,
     sectionsBounds:null,
     sectionsIcons:null,
@@ -86,8 +82,6 @@ const CanvasMap=(props)=>{
 
     lastScroll:0,
     scrollAnim:null,
-
-    textWidth:0,
 
     initialState(){
       return {
@@ -313,13 +307,10 @@ const CanvasMap=(props)=>{
     },
     onScroll(){
       let scroll=getScroll()
-      let t=0
-      let d=Math.abs(scroll-this.lastScroll)
-      d=Math.sqrt(clamp(d/10))
+      let distance=Math.sqrt(clamp(Math.abs(scroll-this.lastScroll)/10))
       this.lastScroll=scroll
-      t=d*0.2
       gsap.to(this.scrollAnim,{
-        duration:t,
+        duration:distance*0.2,
         value:scroll,
         onUpdate:()=>{
           this.updateScroll(this.scrollAnim.value)
@@ -379,9 +370,6 @@ const CanvasMap=(props)=>{
       this.calculateSections()
       this.onScroll()
     },
-    getZoom(){
-      return this.getZoomAtPercent(this.state.pos)
-    },
     drawMapBuffer(ctx,pos,zoom){
       ctx.fillStyle='white'
       ctx.fillRect(0,0,this.mapBufferSize.x,this.mapBufferSize.y)
@@ -429,12 +417,9 @@ const CanvasMap=(props)=>{
         cameraPos
       }
     },
-    getPosAtPercent(percent){
-      return this.state.pos
-    },
     getZoomAtPercent(percent){
       let sectionIndex = this.state.sectionIndex
-      let pos = this.getPosAtPercent()
+      let pos = this.state.pos
 
       let section = this.sections[sectionIndex]
       let nextSection = this.sections[clamp(sectionIndex+1,this.sections.length-1)]
@@ -489,11 +474,7 @@ const CanvasMap=(props)=>{
           y:origin[1]
         }
 
-        let transformCoords=(x,y)=>[x,y]
         let drawTriangle=(corner1,corner2)=>{
-          corner1=transformCoords(...corner1)
-          corner2=transformCoords(...corner2)
-
           let getAngle=(x,y)=>
             Math.atan2(y-origin.y,x-origin.x)
 
@@ -533,8 +514,6 @@ const CanvasMap=(props)=>{
 
           this.ctx.beginPath()
           this.ctx.arc(origin.x,origin.y,radius,angleOrigin,angleOrigin+PI2)
-          //this.ctx.strokeStyle=`#aaa`
-          // this.ctx.stroke()
           this.ctx.fill()
           setCompositeOperation(this.ctx)
 
@@ -727,12 +706,7 @@ const CanvasMap=(props)=>{
         }
       }
 
-      let localToGlobal=(v)=>
-        mult(sub(v,cameraPos),zoom)
-
-      let cameraPath = this.cameraPath
       let pos = this.state.pos
-      let section = this.state.section
       let sectionIndex = this.state.sectionIndex
       let cameraSegment = this.state.cameraSegment
       let trailSegment = this.state.trailSegment
@@ -748,16 +722,11 @@ const CanvasMap=(props)=>{
       let trailTip2=this.trailSubdivisions[clamp(trailTipIndex-1,this.trailSubdivisions.length-1)]
       let icon=this.sectionsIcons[sectionIndex]
 
-
-
       let mapSlice=this.getMapSliceAtPercent(
         interpolate(pos,cameraSegment.start,cameraSegment.end)/this.cameraLength
       )
       let zoom=mapSlice.zoom
       let inverseZoom=1/zoom
-      let cameraPos=mapSlice.cameraPos
-
-      let dpi=1//window.devicePixelRatio
 
       let canvasPos=(x,y)=>typeof x=='object'?
         canvasPos(x.x,x.y):[
@@ -765,10 +734,8 @@ const CanvasMap=(props)=>{
           (y-mapSlice.y)*zoom
         ]
 
-      // Clear canvas
-      // this.ctx.clearRect(0,0,this.canvas.width*dpi,this.canvas.height*dpi)
       this.ctx.fillStyle='#fff'
-      this.ctx.fillRect(0,0,this.canvas.width*dpi,this.canvas.height*dpi)
+      this.ctx.fillRect(0,0,this.canvas.width,this.canvas.height)
 
       drawMap()
       drawTrail()
@@ -776,8 +743,6 @@ const CanvasMap=(props)=>{
       drawPoints()
       drawLabels()
       drawImagePointers()
-
-      //this.ctx.restore()
 
       let blendWorks=setCompositeOperation(this.ctx,'screen')
 
@@ -790,9 +755,6 @@ const CanvasMap=(props)=>{
         gradient.addColorStop(1,"rgba(255, 255, 255, 0)")
       }
       this.ctx.fillStyle=gradient
-
-      // this.ctx.fillStyle='rgba(185, 217, 151, 1)'
-
       this.ctx.fillRect(0,0,this.sectionsBounds[0].right+200,this.state.height)
 
       if(blendWorks)

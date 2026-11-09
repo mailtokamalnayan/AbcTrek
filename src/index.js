@@ -1,6 +1,6 @@
 import CanvasMap from './canvas-map'
 
-let map=CanvasMap({
+CanvasMap({
   textContainer:document.querySelector('.text'),
   mapSrc:'img/map.svg',
   trailVisitedColor:'#47DBB4',

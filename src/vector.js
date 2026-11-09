@@ -8,10 +8,8 @@ function objNum(op,obj,num){
   )
 }
 function objObj(op,objA,objB){
-  let [keysA,keysB] = [Object.keys(objA), Object.keys(objB)]
-
   return Object.assign({},
-    ...keysA.map((i)=>{
+    ...Object.keys(objA).map((i)=>{
       let r={}
       r[i]=op(objA[i],objB[i])
       return r
@@ -23,7 +21,6 @@ const ops={
   add : (a,b) => a+b,
   sub : (a,b) => a-b,
   mult : (a,b) => a*b,
-  div : (a,b) => a/b,
 }
 
 function doOpOn(op,a,b){
@@ -35,13 +32,6 @@ function doOpOn(op,a,b){
   }
 }
 
-export function applyToAll(f,obj){
-  let newObj=Object.assign({},obj)
-  for(let i in newObj){
-    newObj[i]=f(newObj[i])
-  }
-  return newObj
-}
 export function mult(a,b){
   return doOpOn(ops.mult,a,b)
 }
@@ -50,7 +40,4 @@ export function sub(a,b){
 }
 export function add(a,b){
   return doOpOn(ops.add,a,b)
-}
-export function div(a,b){
-  return doOpOn(ops.div,a,b)
 }

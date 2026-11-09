@@ -20,12 +20,6 @@ export const easing={
   quad:{
     in:v => v*v,
     out:v => -1 * v * (v-2),
-    inOut:v => {
-      v /= 0.5
-    	if (v < 1) return 0.5*v*v
-    	v--
-    	return -0.5 * (v*(v-2) - 1)
-    }
   },
   cubic:{
     inOut:v => {
@@ -35,7 +29,4 @@ export const easing={
     	return 0.5*(v*v*v + 2)
     }
   },
-  sine:{
-    inOut:v => -0.5 * (Math.cos(Math.PI*v) - 1),
-  }
 }

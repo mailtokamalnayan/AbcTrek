@@ -1,16 +1,13 @@
 {
-  "name": "codrops-map",
+  "name": "abc-trek",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "An interactive journey to Annapurna Base Camp and back, over eight days.",
   "scripts": {
     "start": "http-server dist -o",
     "build": "webpack --mode production",
-    "watch": "webpack --mode development --watch",
-    "deploy": "gh-pages -d dist"
+    "watch": "webpack --mode development --watch"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
     "gsap": "^3.15.1"
   },
@@ -18,7 +15,6 @@
     "@babel/core": "^8.1.0",
     "@babel/preset-env": "^8.0.7",
     "babel-loader": "^10.1.1",
-    "gh-pages": "^6.3.0",
     "http-server": "^14.1.1",
     "webpack": "^5.112.2",
     "webpack-cli": "^6.0.1"

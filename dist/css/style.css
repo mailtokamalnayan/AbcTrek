@@ -1,18 +1,3 @@
-// JS Lightbox
-.jslghtbx-ie8.jslghtbx {
-  background-image: url(../img/trans-bck.png);
-  display: none;
-}
-.jslghtbx-ie8.jslghtbx.jslghtbx-active {
-  display: block;
-}
-.jslghtbx-ie8.jslghtbx .jslghtbx-contentwrapper > img {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  display: block;
-}
-.jslghtbx-ie8.jslghtbx .jslghtbx-contentwrapper.jslghtbx-wrapper-active > img {
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-}
 .jslghtbx {
   font-family: sans-serif;
   overflow: auto;
@@ -104,7 +89,6 @@
 .jslghtbx-contentwrapper > img.jslghtbx-animating-next,
 .jslghtbx-contentwrapper > img.jslghtbx-animating-prev {
   opacity: 1;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
 }
 .jslghtbx-contentwrapper > img.jslghtbx-animate-transition {
   cursor: pointer;
